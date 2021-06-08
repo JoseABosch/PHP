@@ -1,0 +1,18 @@
+{
+    "name": "jose/dwes.local",
+    "description": "proyecto PHP",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jose Antonio Bosch Roman",
+            "email": "joseant_b84@outlook.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "2.*",
+        "swiftmailer/swiftmailer": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {"JOSE\\": ""}
+    }
+}
