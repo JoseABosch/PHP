@@ -1,5 +1,5 @@
 <?php
-namespace JOSE\app\helpers;
+namespace DWES\app\helpers;
 class Utils
 {
     public static function isOpcionMenuActiva(string $opcionMenu) : bool

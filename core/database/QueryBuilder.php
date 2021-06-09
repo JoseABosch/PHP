@@ -1,8 +1,6 @@
 <?php
-
-namespace JOSE\core\database;
-
-use JOSE\core\App;
+namespace DWES\core\database;
+use DWES\core\App;
 use PDO;
 
 abstract class QueryBuilder
@@ -24,7 +22,7 @@ abstract class QueryBuilder
         $this->entityClass = $entityClass;
     }
 
-    public function findAll(): array
+    public function findAll() : array
     {
         $sql = "select * from $this->table;";
         $pdoStatement = $this->connection->prepare($sql);
@@ -32,7 +30,7 @@ abstract class QueryBuilder
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, $this->entityClass);
     }
 
-    public function findAllOrderBy(string $column): array
+    public function findAllOrderBy(string $column) : array
     {
         $sql = "select * from $this->table order by $column;";
         $pdoStatement = $this->connection->prepare($sql);
@@ -40,36 +38,38 @@ abstract class QueryBuilder
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, $this->entityClass);
     }
 
-    public function findAllEqual(array $columnas, array $valores, array $operadores = null, $orderBy = null, $order = null): array
+    public function findAllEqual(array $columnas,array  $valores,array $operadores = null, $orderBy = null, $order = null) : array
     {
         $sql = "select * from $this->table ";
 
-        if (sizeof($columnas) > 0 && sizeof($valores) > 0) {
+        if(sizeof($columnas) > 0 && sizeof($valores) >0)
+        {
             if (sizeof($operadores) == 0) {
                 for ($i = 0; $i < sizeof($columnas); $i++) {
-                    if ($i == 0) $sql .= " where ";
-                    if ($i > 0) $sql .= " and ";
+                    if ($i == 0) $sql.=" where ";
+                    if ($i > 0) $sql.=" and ";
                     $sql .= $columnas[$i] . " = " . $valores[$i] . " ";
                 }
             } else {
                 for ($i = 0; $i < sizeof($columnas); $i++) {
-                    if ($i == 0) $sql .= " where ";
-                    if ($i > 0) $sql .= " and ";
+                    if ($i == 0) $sql.=" where ";
+                    if ($i > 0) $sql.=" and ";
                     $sql .= $columnas[$i] . " " . $operadores[$i] . " " . $valores[$i] . " ";
                 }
             }
         }
 
-        if ($orderBy != null && $order != null) {
-            $sql .= ' order by ' . $orderBy . ' ' . $order;
+        if($orderBy != null && $order != null)
+        {
+            $sql .= ' order by '.$orderBy.' '.$order;
         }
-        $sql .= ";";
+        $sql.= ";";
         $pdoStatement = $this->connection->prepare($sql);
         $pdoStatement->execute();
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, $this->entityClass);
     }
 
-    public function findAllOrderByDesc(string $column): array
+    public function findAllOrderByDesc(string $column) : array
     {
         $sql = "select * from $this->table order by $column desc;";
         $pdoStatement = $this->connection->prepare($sql);
@@ -77,20 +77,20 @@ abstract class QueryBuilder
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, $this->entityClass);
     }
 
-    public function find(int $id): ?IEntity
+    public function find(int $id) : ?IEntity
     {
         $sql = "select * from $this->table where id=$id;";
         $pdoStatement = $this->connection->prepare($sql);
         $pdoStatement->execute();
-        $pdoStatement->setFetchMode(PDO::FETCH_CLASS, $this->entityClass);
+        $pdoStatement->setFetchMode( PDO::FETCH_CLASS, $this->entityClass);
         return $pdoStatement->fetch(PDO::FETCH_CLASS);
     }
 
-    public function findBy(array $criterios): array
+    public function findBy(array $criterios) : array
     {
         $strCriterios = implode(' AND ',
             array_map(
-                function ($criterio) {
+                function($criterio) {
                     return $criterio . ' = :' . $criterio;
                 },
                 array_keys($criterios)
@@ -106,11 +106,11 @@ abstract class QueryBuilder
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, $this->entityClass);
     }
 
-    public function findOneBy(array $criterios): ?IEntity
+    public function findOneBy(array $criterios) : ?IEntity
     {
         $entities = $this->findBy($criterios);
         if (count($entities) > 1)
-            throw new \Exception('Se está obteniendo más de un elemento como resultado');
+            throw new \Exception('El método findOneBy está obteniendo más de un elemento como resultado');
 
         if (count($entities) === 1)
             return $entities[0];
@@ -119,7 +119,7 @@ abstract class QueryBuilder
     }
 
 
-    public function save(IEntity $entidad): bool
+    public function save(IEntity $entidad) : bool
     {
         $parametros = $entidad->toArray();
 
@@ -135,7 +135,7 @@ abstract class QueryBuilder
         return $pdoStatement->execute($parametros);
     }
 
-    public function update(IEntity $entidad): bool
+    public function update(IEntity $entidad) : bool
     {
         $parametros = $entidad->toArray();
 
@@ -154,9 +154,12 @@ abstract class QueryBuilder
         return $pdoStatement->execute($parametros);
     }
 
-    public function delete(IEntity $entity): bool
+    public function delete(IEntity $entity) : bool
     {
-        $sql = sprintf("DELETE FROM %s WHERE id = :id;", $this->table);
+        $sql = sprintf(
+            "DELETE FROM %s WHERE id = :id;",
+            $this->table
+        );
         $pdoStatement = $this->connection->prepare($sql);
 
         $id = $entity->getId();

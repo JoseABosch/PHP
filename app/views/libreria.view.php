@@ -20,40 +20,32 @@
                             </div>
                         <?php endif;?>
                         <div class="breadcrumb-option">
-                        <form class="form-horizontal"  action="libreria" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal"  action="/libreria" method="post" enctype="multipart/form-data">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="precio">Precio</label>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="Titulo">Título</label>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input class="text-center" type="number" min="0" class="form-control" name="precio" ">
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <input class="text-center" type="number" min="1" class="form-control" name="titulo">
-                                </div>
                             </div>
                             </br>
+
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="autor">Autor</label>
+                                    <label for="editorial">Editorial</label>
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input class="text-center" type="number" min="0" class="form-control" name="autor">
+                                    <label for="titulo">Título</label>
                                 </div>
                             </div>
-                            </br>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <div style="width: 350px; margin: auto;">
                                         <select name="editorial">
-                                            <?php use JOSE\core\App;
+                                            <?php use DWES\core\app;
 
                                             foreach ($editoriales as $editorial) : ?>
                                                 <option value="<?= $editorial->getId() ?>"><?= $editorial->getNombre() ?></option>
@@ -61,6 +53,9 @@
                                         </select>
                                     </div>
 
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input class="text-center" type="text" min="1" class="form-control" name="titulo">
                                 </div>
                             </div>
                             </br>
@@ -73,6 +68,10 @@
                                 </div>
                             </div>
                             </br>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Autor</label>
+                                <input type="text" class="form-control" name="autor">
+                            </div>
                             <input  type="submit" class="btn btn-primary" value="add">
                         </form>
                         </div>
@@ -86,7 +85,7 @@
     <table class="table" style="margin: auto; width: 60%" >
         <tr>
             <th>Imagen</th>
-            <th>Provincia</th>
+            <th>Título</th>
             <th>Precio</th>
             <?php if(App::get('user')->getRole() === "ROLE_ADMIN") : ?>
                 <th>Usuario</th>
@@ -95,8 +94,8 @@
         </tr>
         <?php foreach($libros as $libro) : ?>
             <tr>
-                <td><img width="100" src="<?= strlen($libro->getFoto()) > 0 ? $libro->getPathFeature() : '/img/feature/sinlibro.png' ?>" alt="<?= $libro->getTitulo() ?>"></td>
-                <td><?= $libro->getAutor()?></td>
+                <td><img width="100" src="<?= strlen($libro->getFoto()) > 0 ? $libro->getPathFeature() : '/img/feature/sincasa.png' ?>" alt="<?= $libro->getAutor() ?>"></td>
+                <td><?= $libro->getTitulo()?></td>
                 <td><?= $libro->getPrecio()?> €</td>
                 <?php if(App::get('user')->getRole() === "ROLE_ADMIN") : ?>
                     <td><?= $libro->getUsuarioAsociado()->getUsername() ?></td>
@@ -109,144 +108,6 @@
             <?php ;endforeach ?>
     </table>
 </div>
-    <!-- Blog Section Begin -->
-    <section class="blog-section blog-page spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <div class="sb-pic">
-                            <img src="img/blog/latest-1.jpg" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <ul>
-                                <li><i class="fa fa-user"></i> Adam Smith</li>
-                                <li><i class="fa fa-clock-o"></i> 18th Jan, 2019</li>
-                            </ul>
-                            <h4><a href="blog-details.php">Enhance Your Brand Potential With Giant.</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <div class="sb-pic">
-                            <img src="img/blog/latest-2.jpg" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <ul>
-                                <li><i class="fa fa-user"></i> Adam Smith</li>
-                                <li><i class="fa fa-clock-o"></i> 18th Jan, 2019</li>
-                            </ul>
-                            <h4><a href="blog-details.php">Illustration In Marketing Materials</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <div class="sb-pic">
-                            <img src="img/blog/latest-3.jpg" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <ul>
-                                <li><i class="fa fa-user"></i> Adam Smith</li>
-                                <li><i class="fa fa-clock-o"></i> 22th Jan, 2019</li>
-                            </ul>
-                            <h4><a href="blog-details.php">Branding Do You Know Who You Are</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <div class="sb-pic">
-                            <img src="img/blog/latest-4.jpg" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <ul>
-                                <li><i class="fa fa-user"></i> Adam Smith</li>
-                                <li><i class="fa fa-clock-o"></i> 24th Jan, 2019</li>
-                            </ul>
-                            <h4><a href="blog-details.php">Looking For Your Dvd Printing Solution</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <div class="sb-pic">
-                            <img src="img/blog/latest-5.jpg" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <ul>
-                                <li><i class="fa fa-user"></i> Adam Smith</li>
-                                <li><i class="fa fa-clock-o"></i> 29th Jan, 2019</li>
-                            </ul>
-                            <h4><a href="blog-details.php">How To Set Intentions That Energize You</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <div class="sb-pic">
-                            <img src="img/blog/latest-6.jpg" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <ul>
-                                <li><i class="fa fa-user"></i> Adam Smith</li>
-                                <li><i class="fa fa-clock-o"></i> 30th Jan, 2019</li>
-                            </ul>
-                            <h4><a href="blog-details.php">Do Your Self Realizations Quickly Fade</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <div class="sb-pic">
-                            <img src="img/blog/latest-3.jpg" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <ul>
-                                <li><i class="fa fa-user"></i> Adam Smith</li>
-                                <li><i class="fa fa-clock-o"></i> 02th Feb, 2019</li>
-                            </ul>
-                            <h4><a href="blog-details.php">Motivation How To Build Trust At Work</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <div class="sb-pic">
-                            <img src="img/blog/latest-7.jpg" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <ul>
-                                <li><i class="fa fa-user"></i> Adam Smith</li>
-                                <li><i class="fa fa-clock-o"></i> 09th Feb, 2019</li>
-                            </ul>
-                            <h4><a href="blog-details.php">Not All Blank Cassettes Are Created Equal</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <div class="sb-pic">
-                            <img src="img/blog/latest-8.jpg" alt="">
-                        </div>
-                        <div class="sb-text">
-                            <ul>
-                                <li><i class="fa fa-user"></i> Adam Smith</li>
-                                <li><i class="fa fa-clock-o"></i> 12th Feb, 2019</li>
-                            </ul>
-                            <h4><a href="blog-details.php">The Small Change That Creates Massive Results</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="loadmore">
-                        <a href="#" class="primary-btn">Load More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Blog Section End -->
-<script type="text/javascript" src="/js/libros.js"></script>
+
+<script type="text/javascript" src="/js/casas.js"></script>
 

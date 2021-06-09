@@ -1,18 +1,17 @@
 <?php
+use DWES\app\BLL\LibroBLL;
+use DWES\app\entity\Libro;
+use DWES\app\helpers\MyLogger;
+use DWES\app\repository\EditorialRepository;
+use DWES\app\repository\LibroRepository;
 
-use JOSE\BLL\LibroBLL;
-use JOSE\entity\Libro;
-use JOSE\helpers\MyLogger;
-use JOSE\repository\EditorialRepository;
-use JOSE\repository\LibroRepository;
-
-$libroRepository = new LibroRepository();
+$LibroRepository = new LibroRepository();
 
 try {
-    $libroRepository->getConnection()->beginTransaction();
+    $LibroRepository->getConnection()->beginTransaction();
     $precio = $_POST['precio'];
-    $titulo = $_POST['titulo'];
     $editorialLibro = $_POST['editorial'];
+    $titulo = $_POST['titulo'];
     $autor = $_POST['autor'];
     $imagenBLL = new LibroBLL($_FILES['imagen']);
     $imagenBLL->uploadImagen();
@@ -20,11 +19,11 @@ try {
 
     $libro = new Libro();
     $libro->setPrecio(intval($precio))
-        ->setTitulo($titulo)
-        ->setAutor($autor)
         ->setEditorial($editorialLibro)
+        ->setTitulo($titulo)
         ->setFoto($nombre)
-        ->setEditorial($editorialLibro);
+        ->setEditorial($editorialLibro)
+        ->setAutor($autor);
 
     $libro2 = $LibroRepository->save($libro);
 
@@ -32,18 +31,18 @@ try {
     /** @var Editorial $editorial */
     $editorial = $editorialRepository->find($editorialLibro);
     $editorial->setNumLibros(
-        $editorial->getNumCasas() + 1
+        $editorial->getNumLibros()+1
     );
     $editorialRepository->update($editorial);
 
     $LibroRepository->getConnection()->commit();
 
-} catch (Exception $exception) {
+} catch(Exception $exception) {
     $LibroRepository->getConnection()->rollBack();
     var_dump($exception);
 }
 
 MyLogger::createLog(
-    'Se ha insertado la imagen ' . $libro->getFoto());
+    'Se ha insertado una nueva imagen llamada ' . $libro->getFoto());
 
 App::get('router')->redirect('blog');

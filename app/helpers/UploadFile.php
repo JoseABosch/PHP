@@ -1,5 +1,5 @@
 <?php
-namespace JOSE\app\helpers;
+namespace DWES\app\helpers;
 trait UploadFile
 {
     private string $error = '';
@@ -14,10 +14,10 @@ trait UploadFile
             switch($fileProperties['error']) {
                 case UPLOAD_ERR_INI_SIZE:
                 case UPLOAD_ERR_FORM_SIZE:
-                    $this->error = "Se ha superado el tamaño máximo de archivo.";
+                    $this->error = "Se ha superado el tamaño máximo de archivo";
                     break;
                 default:
-                    $this->error = "No se ha podido subir el archivo.";
+                    $this->error = "No se ha podido subir el archivo";
                     break;
             }
         }
@@ -33,7 +33,7 @@ trait UploadFile
                 $fileProperties['type'],
                 $allowedFileTypes) === false)
         {
-            $this->error = "Formato de archivo no soportado, solo se admite jpg y png.";
+            $this->error = "Formato de archivo no soportado, solo se admite jpg y png";
             return false;
         }
         return true;
@@ -69,7 +69,7 @@ trait UploadFile
 
     private function getPathUploadedFile() : string
     {
-       return '/home/proyectos/dwes.local/public/' . $this->uploadsDirectory;
+       return '/home/dwes/proyectos/casas.local/public/' . $this->uploadsDirectory;
         //return __DIR__ . '/../../public/' . $this->uploadsDirectory;
     }
 
@@ -81,7 +81,7 @@ trait UploadFile
         if (move_uploaded_file(
                 $fileProperties['tmp_name'],
                 $pathUploadedFile) === false)
-            $this->error = "No se ha podido mover el fichero subido.";
+            $this->error = "No se ha podido movel el fichero subido";
     }
 
     public function uploadFile(

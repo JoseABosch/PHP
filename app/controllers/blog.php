@@ -1,6 +1,6 @@
 <?php
-use JOSE\repository\LibroRepository;
-use JOSE\repository\EditorialRepository;
+use DWES\app\repository\LibroRepository;
+use DWES\app\repository\EditorialRepository;
 
 $editorialRepository = new EditorialRepository();
 $editoriales = $editorialRepository->findAll();

@@ -1,10 +1,10 @@
 <?php
 
-use JOSE\app\controllers\AuthController;
-use JOSE\app\controllers\LibroController;
-use JOSE\app\controllers\MensajeController;
-use JOSE\app\controllers\PagesController;
-use JOSE\core\App;
+use DWES\app\controllers\AuthController;
+use DWES\app\controllers\LibroController;
+use DWES\app\controllers\MensajeController;
+use DWES\app\controllers\PagesController;
+use DWES\core\App;
 
 $router = App::get('router');
 
@@ -24,10 +24,14 @@ $router->post('check-registro', AuthController::class, 'checkRegistro');
 $router->get('logout', AuthController::class, 'logout', 'ROLE_USER');
 $router->post('contact', MensajeController::class, 'nuevo');
 $router->get('main', PagesController::class, 'main');
-$router->get('property', PagesController::class, 'property', 'ROLE_USER');
-$router->get('property-details', PagesController::class, 'propertyDetails', 'ROLE_USER');
 $router->post('libreria', LibroController::class, 'nuevoLibro', 'ROLE_USER');
 $router->post('', LibroController::class, 'comprarLibro', 'ROLE_USER');
 $router->delete('libreria/:id', LibroController::class, 'deleteJson', 'ROLE_USER');
 
-$router->get('buscar/:titulo', LibroController::class, 'listar');
+//$router->get('buscar/:habitaciones/:precio_inicial/:precio_final', LibroController::class, 'listar');
+
+/*
+    buscar/3/0/0
+    buscar/3/Alicante/0
+
+*/

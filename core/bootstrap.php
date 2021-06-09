@@ -1,8 +1,8 @@
 <?php
 
-use JOSE\core\App;
-use JOSE\core\database\Connection;
-use JOSE\app\helpers\MyMail;
+use DWES\core\App;
+use DWES\core\database\Connection;
+use DWES\app\helpers\MyMail;
 
 session_start();
 

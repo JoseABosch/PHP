@@ -22,9 +22,9 @@ return [
         'smtp_server' => 'smtp.googlemail.com',
         'smtp_port' => '587',
         'smtp_security' => 'tls',
-        'username' => 'joseant_b84@outlook.com',
-        'password' => 'rkijydgytrnqdfrc',
-        'email' => 'joseant_b84@outlook.com',
-        'name' => 'Libreria PHP'
+        'username' => 'josebosch@gmail.com',
+        'password' => 'Carlitos84',
+        'email' => 'josebosch84@gmail.com',
+        'name' => 'Proyecto PHP'
     ]
 ];

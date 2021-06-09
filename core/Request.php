@@ -1,5 +1,5 @@
 <?php
-namespace JOSE\core;
+namespace DWES\core;
 
 class Request
 {

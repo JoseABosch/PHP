@@ -1,6 +1,6 @@
 <?php
-namespace JOSE\app\BLL;
-use JOSE\app\helpers\UploadFile;
+namespace DWES\app\BLL;
+use DWES\app\helpers\UploadFile;
 
 class LibroBLL
 {

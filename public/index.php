@@ -1,9 +1,9 @@
 <?php
 
-use JOSE\app\repository\UsuarioRepository;
-use JOSE\core\App;
-use JOSE\core\Request;
-use JOSE\core\Router;
+use DWES\app\repository\UsuarioRepository;
+use DWES\core\App;
+use DWES\core\Request;
+use DWES\core\Router;
 
 require __DIR__ . '/../core/bootstrap.php';
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace JOSE\core;
+namespace DWES\core;
 
-use JOSE\core\database\QueryBuilder;
+use DWES\core\database\QueryBuilder;
 use Exception;
 
 class App

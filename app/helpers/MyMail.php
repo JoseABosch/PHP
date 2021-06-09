@@ -1,8 +1,8 @@
 <?php
 
-namespace JOSE\app\helpers;
+namespace DWES\app\helpers;
 
-use JOSE\core\App;
+use DWES\core\App;
 use Swift_Message;
 use Swift_SmtpTransport;
 use Swift_Mailer;

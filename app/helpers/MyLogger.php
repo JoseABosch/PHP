@@ -1,11 +1,11 @@
 <?php
 
-namespace JOSE\app\helpers;
+namespace DWES\app\helpers;
 use Monolog;
 
 class MyLogger
 {
-    const LOG_FILE_PATH = '/home/jose/proyectos/dwes.local/logs/log.log';
+    const LOG_FILE_PATH = '/home/dwes/proyectos/dwes.local/logs/log.log';
 
     public static function createLog(string $mensaje)
     {

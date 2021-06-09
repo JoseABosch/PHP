@@ -1,5 +1,5 @@
 <?php
-namespace JOSE\app\entity;
+namespace DWES\app\entity;
 
 class Contactar implements IEntity
 {

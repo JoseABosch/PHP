@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <span>Listing From Our Agents</span>
-                    <h2>Libro num <?= $libro->getId() ?></h2>
+                    <h2>Edición</h2>
                 </div>
             </div>
         </div>
@@ -13,7 +12,7 @@
         <div class="row" style="margin: auto">
 
             <div class="col-md-6">
-                <img src="<?= strlen($libro->getFoto()) > 0 ? '/' . $libro->getPathFeature() : '/img/feature/sinlibro.png' ?>" width="100%; margin-left: 60px">
+                <img src="<?= strlen($libro->getFoto()) > 0 ? '/' . $libro->getPathFeature() : '/img/feature/sincasa.png' ?>" width="100%; margin-left: 60px">
             </div>
 
             <div class="col-md-6">
@@ -43,15 +42,21 @@
                         <label>
                             Título:
                         </label>
-                        <textarea name="titulo" class="form-control"><?php echo $libro->getTitulo();?></textarea>
+                        <input class="text-center" type="text"  value="<?php echo $libro->getTitulo()?>" class="form-control" name="titulo">
                     </div>
                     <div class="form-group">
                         <label>
                             Autor:
                         </label>
-                        <input class="text-center" type="number" min="0"  value="<?php echo $libro->getAutor();?>" class="form-control" name="autor">
+                        <input class="text-center" type="text"  value="<?php echo $libro->getAutor()?>" class="form-control" name="autor">
                     </div>
 
+                    <div class="form-group">
+                        <label>
+                            Propietario:
+                        </label>
+                        <input class="text-center" type="text" disabled  value="<?php echo $libro-> getUsuarioAsociado()->getUsername()?>" class="form-control" name="propietario">
+                    </div>
 
                     <input class="text-center" style="display: none;visibility: hidden;" type="text" min="0"  value="<?php echo $libro->getId();?>" class="form-control" name="id">
                     <div class="row" style="width: 100%;">

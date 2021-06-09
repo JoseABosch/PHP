@@ -1,9 +1,9 @@
 <?php
 
 
-namespace JOSE\app\controllers;
+namespace DWES\app\controllers;
 
-use JOSE\core\Response;
+use DWES\core\Response;
 
 class PagesController
 {
@@ -29,8 +29,8 @@ class PagesController
 
     public function notFound()
     {
-        header('HTTP/1.1 404 Not Found', true, 404);
-        Response:: renderView('404');
+        header ('HTTP/1.1 404 Not Found', true, 404);
+        Response:: renderView ('404');
     }
 
 }

@@ -1,5 +1,5 @@
 <?php
-namespace JOSE\core\database;
+namespace DWES\core\database;
 use PDO;
 use PDOException;
 

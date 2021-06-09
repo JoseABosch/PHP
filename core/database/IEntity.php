@@ -1,5 +1,5 @@
 <?php
-namespace JOSE\core\database;
+namespace DWES\core\database;
 interface IEntity
 {
     public function getId() : int;

@@ -1,21 +1,20 @@
 <?php
 
-namespace JOSE\app\controllers;
+namespace DWES\app\controllers;
 
-use JOSE\app\repository\UsuarioRepository;
-use JOSE\core\App;
-use JOSE\core\Response;
-use JOSE\app\entity\Mensaje;
-use JOSE\app\repository\MensajeRepository;
+use DWES\app\repository\UsuarioRepository;
+use DWES\core\App;
+use DWES\core\Response;
+use DWES\app\entity\Mensaje;
+use DWES\app\repository\MensajeRepository;
 use Exception;
 use ArrayObject;
-use JOSE\app\helpers\MyMail;
+use DWES\app\helpers\MyMail;
 
 class MensajeController
 {
     public function formulario()
     {
-
         $nombre = '';
         $apellidos = '';
         $email = '';
@@ -27,12 +26,13 @@ class MensajeController
         $usuarioRepository = new UsuarioRepository();
         $usuarios = $usuarioRepository->findAllOrderBy('username');
 
+
         Response:: renderView('contact',
             [
-                'nombre' => $nombre,
-                'apellidos' => $apellidos,
-                'email' => $email,
-                'asunto' => $asunto,
+                'nombre' => $nombre ,
+                'apellidos' => $apellidos ,
+                'email' => $email ,
+                'asunto' => $asunto ,
                 'texto' => $texto,
                 'mensaje' => $mensaje,
                 'nuevo' => $nuevo,
@@ -42,7 +42,6 @@ class MensajeController
 
     public function nuevo()
     {
-
         $errores = [];
         $mensaje = '';
         $nombre = '';
@@ -55,13 +54,15 @@ class MensajeController
         $usuarioRepository = new UsuarioRepository();
         $usuarios = $usuarioRepository->findAllOrderBy('username');
 
-        try {
-            $usuario = App::get('user');
-            $mensajeRepository = new MensajeRepository();
-            $conexion = $mensajeRepository->getConnection();
-            $conexion->beginTransaction();
+        try
+        {
+           $usuario = App::get('user');
+           $mensajeRepository = new MensajeRepository();
+           $conexion = $mensajeRepository->getConnection();
+           $conexion->beginTransaction();
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST')
+            {
                 $nombre = trim(htmlspecialchars($_POST['nombre']));
                 $apellidos = trim(htmlspecialchars($_POST['apellidos']));
                 $email = trim(htmlspecialchars($_POST['email']));
@@ -73,7 +74,8 @@ class MensajeController
 
                 if (empty($email))
                     $errores[] = "El e-mail no se puede quedar vacío";
-                else {
+                else
+                {
                     if (filter_var($email, FILTER_VALIDATE_EMAIL) === false)
                         $errores[] = "El e-mail no es válido";
                 }
@@ -84,8 +86,9 @@ class MensajeController
                 if (empty($errores)) {
                     $usuarioMensaje = $usuario->getId();
 
-                    foreach ($usuarios as $usuario) {
-                        if ($usuario->getUsername() === $nombre)
+                    foreach ($usuarios as $usuario)
+                    {
+                        if($usuario->getUsername() === $nombre)
                             $receptor = $usuario->getId();
                     }
 
@@ -99,7 +102,7 @@ class MensajeController
 
                     try {
                         $mymail = new MyMail();
-                        $mymail->send($mensaje->getAsunto(), $mensaje->getEmail(), 'pablonisen@gmail.com', $mensaje->getTexto());
+                        $mymail->send($mensaje->getAsunto(), $mensaje->getEmail(), 'josebosch84@gmail.com', $mensaje->getTexto());
 
                         $errores = [];
                         $mensaje = '';
@@ -109,23 +112,25 @@ class MensajeController
                         $asunto = '';
                         $texto = '';
 
-                    } catch (Exception $e) {
+                    }catch(Exception $e) {
                         //Error mail
                         //var_dump($e);
                     }
                 }
             }
-        } catch (Exception $exception) {
+        }
+        catch (Exception $exception)
+        {
             $conexion->rollBack();
         }
 
         Response:: renderView('contact',
             [
-                'errores' => $errores,
-                'nombre' => $nombre,
-                'apellidos' => $apellidos,
-                'email' => $email,
-                'asunto' => $asunto,
+                'errores' => $errores ,
+                'nombre' => $nombre ,
+                'apellidos' => $apellidos ,
+                'email' => $email ,
+                'asunto' => $asunto ,
                 'texto' => $texto,
                 'mensaje' => $mensaje,
                 'nuevo' => $nuevo,
@@ -138,7 +143,8 @@ class MensajeController
     private function array_sort_by(&$arrIni, $col, $order = SORT_ASC)
     {
         $arrAux = array();
-        foreach ($arrIni as $key => $row) {
+        foreach ($arrIni as $key=> $row)
+        {
             $arrAux[$key] = is_object($row) ? $arrAux[$key] = $row->$col : $row[$col];
             $arrAux[$key] = strtolower($arrAux[$key]);
         }

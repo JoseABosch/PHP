@@ -1,7 +1,7 @@
 <?php
-namespace JOSE\app\repository;
-use JOSE\core\database\QueryBuilder;
-use JOSE\app\entity\Editorial;
+namespace DWES\app\repository;
+use DWES\core\database\QueryBuilder;
+use DWES\app\entity\Editorial;
 
 class EditorialRepository extends QueryBuilder
 {

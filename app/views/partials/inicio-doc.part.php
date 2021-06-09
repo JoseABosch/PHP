@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="libreria Template">
+    <meta name="description" content="Azenta Template">
     <meta name="keywords" content="Azenta, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>libreria | Template</title>
+    <title>Azenta | Template</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap"
@@ -45,23 +45,7 @@
     <div class="canvas-close">
         <i class="icon_close"></i>
     </div>
-    <div class="language-bar">
-        <div class="language-option">
-            <img src="img/flag.png" alt="">
-            <span>English</span>
-            <i class="fa fa-angle-down"></i>
-            <div class="flag-dropdown">
-                <ul>
-                    <li><a href="#">English</a></li>
-                    <li><a href="#">Germany</a></li>
-                    <li><a href="#">China</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="property-btn">
-            <a href="#" class="property-sub">Submit Property</a>
-        </div>
-    </div>
+
     <nav class="main-menu">
         <ul>
             <li><a href="index.php">Home</a></li>
@@ -85,7 +69,7 @@
                 <i class="icon_map"></i>
                 <div class="info-text">
                     <span>Address:</span>
-                    <p>16 Creek Ave, <span>NY</span></p>
+                    <p>16 Creek Ave, <span>SPAIN</span></p>
                 </div>
             </li>
             <li>

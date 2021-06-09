@@ -1,4 +1,4 @@
-<?php use JOSE\app\helpers\Utils; ?>
+<?php use DWES\app\helpers\Utils; ?>
 <!-- Header Section Begin -->
 <header class="header-section header-normal">
     <div class="top-nav">
@@ -10,11 +10,8 @@
                             <li class="<?= Utils::isOpcionMenuActiva('index') ? 'active' : '' ?>">
                                 <a href="/">Inicio</a>
                             </li>
-                            <li class="<?= Utils::isOpcionMenuActiva('property.') ? 'active' : '' ?>">
-                                <a href="/property">Mapa</a>
-                            </li>
                             <li class="<?= Utils::isOpcionMenuActiva('blog') ? 'active' : '' ?>">
-                                <a href="/blog">Viviendas</a>
+                                <a href="/blog">Libros</a>
                             </li>
                             <li class="<?= Utils::isOpcionMenuActiva('property-details') ? 'active' : '' ?>">
                                 <a href="/property-details">Nosotros</a>
@@ -65,8 +62,8 @@
                             <li>
                                 <i class="icon_map"></i>
                                 <div class="info-text">
-                                    <span>Address:</span>
-                                    <p>16 Creek Ave, <span>NY</span></p>
+                                    <span>FER la hostia:</span>
+                                    <p>16 Creek Ave, <span>SPAIN</span></p>
                                 </div>
                             </li>
                             <li>

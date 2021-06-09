@@ -4,31 +4,24 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <span>Listing From Our Agents</span>
-                    <h2>Libro num <?= $libro->getId() ?></h2>
+                    <h2> Detalle del libro <?= $libro->getTitulo() ?></h2>
                 </div>
             </div>
         </div>
         <div class="row" style="margin: auto">
                     <div class="col-md-6">
-                        <img src="<?= strlen($libro->getFoto()) > 0 ? '/' . $libro->getPathFeature() : '/img/feature/sinlibro.png' ?>" width="100%; margin-left: 60px">
+                        <img src="<?= strlen($libro->getFoto()) > 0 ? '/' . $libro->getPathFeature() : '/img/feature/sincasa.png' ?>" width="100%; margin-left: 60px">
                     </div>
 
                     <div class="col-md-6">
                         <div class="fi-text">
                             <div class="inside-text">
-                                <h3 style="margin: 20px"><?= $libro->getPrecio() ?> €</h3>
-                                <h4 style="margin: 20px"><?= $libro->getEditorialAsociada()->getNombre(). ' en ' .$libro->getProvincia() ?></h4>
-
+                                <p style="margin: 20px">Precio: <?= $libro->getPrecio() ?> €</p>
+                                <p style="margin: 20px">Editorial: <?= $libro->getEditorialAsociada()->getNombre()?></p>
+                                <p style="margin: 20px">Autor: <?= $libro-> getAutor()?></p>
+                                <p style="margin: 20px">Propietario: <?= $libro-> getUsuarioAsociado()->getUsername()?></p>
                             </div>
-                            <ul class="room-features">
-                                <li>
-                                    <p>Título: <?= $libro-> getTitulo()?></p>
-                                </li>
-                                <li>
-                                    <p>Autor: <?= $libro-> getAutor()?> </p>
-                                </li>
-                            </ul>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <button class="btn btn-primary" onclick="window.location='/libreria-editar/<?php echo $libro->getId();?>' ">Ir a editar</button>

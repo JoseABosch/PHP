@@ -1,10 +1,10 @@
 <?php
 
 
-namespace JOSE\app\repository;
+namespace DWES\app\repository;
 
-use JOSE\app\entity\Usuario;
-use JOSE\core\database\QueryBuilder;
+use DWES\app\entity\Usuario;
+use DWES\core\database\QueryBuilder;
 
 class UsuarioRepository extends QueryBuilder
 {

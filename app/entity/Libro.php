@@ -1,19 +1,20 @@
 <?php
-namespace JOSE\app\entity;
-use JOSE\app\repository\UsuarioRepository;
-use JOSE\core\database\IEntity;
-use JOSE\app\repository\EditorialRepository;
+namespace DWES\app\entity;
+use DWES\app\repository\UsuarioRepository;
+use DWES\core\database\IEntity;
+use DWES\app\repository\EditorialRepository;
 
 class Libro implements IEntity
 {
     const RUTA_FEATURE = 'img/feature/';
     private int $id = 0;
     private int $precio = 0;
-    private string $autor = '';
-    private string $titulo = '';
     private string $foto = '';
+    private string $titulo = '';
+    private string $autor = '';
     private int $editorial = 0;
     private int $usuario;
+    //private int $comprador = 0;
 
     /**
      * @return int
@@ -48,6 +49,24 @@ class Libro implements IEntity
     public function setPrecio(int $precio): Libro
     {
         $this->precio = $precio;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFoto(): string
+    {
+        return $this->foto;
+    }
+
+    /**
+     * @param string $foto
+     * @return Libro
+     */
+    public function setFoto(string $foto): Libro
+    {
+        $this->foto = $foto;
         return $this;
     }
 
@@ -90,32 +109,6 @@ class Libro implements IEntity
     /**
      * @return int
      */
-    public function getSuperficie(): int
-    {
-        return $this->superficie;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFoto(): string
-    {
-        return $this->foto;
-    }
-
-    /**
-     * @param string $foto
-     * @return Libro
-     */
-    public function setFoto(string $foto): Libro
-    {
-        $this->foto = $foto;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
     public function getEditorial(): int
     {
         return $this->editorial;
@@ -152,16 +145,33 @@ class Libro implements IEntity
         $this->usuario = $usuario;
     }
 
+    /**
+     * @return int
+     */
+    /*public function getComprador(): int
+    {
+        return $this->comprador;
+    }*/
+
+    /**
+     * @param int $comprador
+     */
+    /*public function setComprador(int $comprador): void
+    {
+        $this->comprador = $comprador;
+    }*/
+
 
     public function toArray() : array
     {
         return [
             'precio' => $this->getPrecio(),
+            'foto' => $this->getFoto(),
             'titulo' => $this->getTitulo(),
             'autor' => $this->getAutor(),
-            'foto' => $this->getFoto(),
             'editorial' => $this->getEditorial(),
             'usuario' => $this->getUsuario()
+            //'comprador' => $this->getComprador()
         ];
     }
 

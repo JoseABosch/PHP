@@ -1,8 +1,8 @@
 <?php
-namespace JOSE\core;
+namespace DWES\core;
 
-use JOSE\app\controllers\AuthController;
-use JOSE\app\controllers\PagesController;
+use DWES\app\controllers\AuthController;
+use DWES\app\controllers\PagesController;
 use Exception;
 
 class Router

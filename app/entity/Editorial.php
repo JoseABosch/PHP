@@ -1,7 +1,7 @@
 <?php
-namespace JOSE\app\entity;
+namespace DWES\app\entity;
 
-use JOSE\core\database\IEntity;
+use DWES\core\database\IEntity;
 
 class Editorial implements IEntity
 {

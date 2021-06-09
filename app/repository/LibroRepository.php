@@ -1,9 +1,9 @@
 <?php
-namespace JOSE\app\repository;
+namespace DWES\app\repository;
 
-use JOSE\core\database\QueryBuilder;
-use JOSE\app\entity\Libro;
-use JOSE\app\entity\Editorial;
+use DWES\core\database\QueryBuilder;
+use DWES\app\entity\Libro;
+use DWES\app\entity\Editorial;
 
 class LibroRepository extends QueryBuilder
 {

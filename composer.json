@@ -13,6 +13,6 @@
         "swiftmailer/swiftmailer": "^6.0"
     },
     "autoload": {
-        "psr-4": {"JOSE\\": ""}
+        "psr-4": {"DWES\\": ""}
     }
 }

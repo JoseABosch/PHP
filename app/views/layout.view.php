@@ -7,7 +7,7 @@
     <meta name="keywords" content="Azenta, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Azenta | Template</title>
+    <title>Librería Bosch | Template</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap"
@@ -46,27 +46,9 @@
     <div class="canvas-close">
         <i class="icon_close"></i>
     </div>
-    <div class="language-bar">
-        <div class="language-option">
-            <img src="img/flag.png" alt="">
-            <span>English</span>
-            <i class="fa fa-angle-down"></i>
-            <div class="flag-dropdown">
-                <ul>
-                    <li><a href="#">English</a></li>
-                    <li><a href="#">Germany</a></li>
-                    <li><a href="#">China</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="property-btn">
-            <a href="#" class="property-sub">Submit Property</a>
-        </div>
-    </div>
     <nav class="main-menu">
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="property.php">Property</a></li>
             <li><a href="about-us.php">Agets</a></li>
             <li><a href="blog.php">News</a></li>
             <li><a href="property-details.php">Pages</a></li>
@@ -78,8 +60,8 @@
             <li>
                 <i class="icon_phone"></i>
                 <div class="info-text">
-                    <span>Phone:</span>
-                    <p>(+12) 345 6789</p>
+                    <span>Teléfono:</span>
+                    <p>(+34) 685989889</p>
                 </div>
             </li>
             <li>
@@ -113,11 +95,8 @@
                             <li class="<?= Utils::isOpcionMenuActiva('index') ? 'active' : '' ?>">
                                 <a href="/">Inicio</a>
                             </li>
-                            <li class="<?= Utils::isOpcionMenuActiva('viviendas') ? 'active' : '' ?>">
-                                <a href="/viviendas">Viviendas</a>
-                            </li>
-                            <li class="<?= Utils::isOpcionMenuActiva('property-details') ? 'active' : '' ?>">
-                                <a href="/property-details">Nosotros</a>
+                            <li class="<?= Utils::isOpcionMenuActiva('libreria') ? 'active' : '' ?>">
+                                <a href="/libreria">Tienda</a>
                             </li>
                             <li class="<?= Utils::isOpcionMenuActiva('contact') ? 'active' : '' ?>">
                                 <a href="/contact">Mensajes</a>
@@ -137,22 +116,6 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-5">
-                    <div class="top-right">
-                        <div class="language-option">
-                            <img src="img/flag.png" alt="">
-                            <span>English</span>
-                            <i class="fa fa-angle-down"></i>
-                            <div class="flag-dropdown">
-                                <ul>
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">Germany</a></li>
-                                    <li><a href="#">China</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -162,33 +125,6 @@
                 <div class="col-lg-3">
                     <div class="logo">
                         <a href="index.php"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="nav-logo-right">
-                        <ul>
-                            <li>
-                                <i class="icon_phone"></i>
-                                <div class="info-text">
-                                    <span>Phone:</span>
-                                    <p>(+12) 345 6789</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon_map"></i>
-                                <div class="info-text">
-                                    <span>Address:</span>
-                                    <p>16 Creek Ave, <span>NY</span></p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon_mail"></i>
-                                <div class="info-text">
-                                    <span>Email:</span>
-                                    <p>Info.cololib@gmail.com</p>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -250,8 +186,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-3 offset-lg-1">
-                </div>
+
                 <div class="col-lg-2">
                     <div class="footer-widget">
                         <h4>Social</h4>
@@ -265,11 +200,11 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="footer-widget">
-                        <h4>Contact Us</h4>
+                        <h4>Contacto</h4>
                         <ul class="contact-option">
-                            <li><i class="fa fa-map-marker"></i> 16 Creek Ave. Farming, NY</li>
-                            <li><i class="fa fa-phone"></i> (+88) 666 121 4321</li>
-                            <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+                            <li><i class="fa fa-map-marker"></i> calle Sevilla, 66 Alicante</li>
+                            <li><i class="fa fa-phone"></i> (+34) 685 56 89 34</li>
+                            <li><i class="fa fa-envelope"></i> josebosch84@gmail.com</li>
                             <li><i class="fa fa-clock-o"></i> Mon - Sat, 08 AM - 06 PM</li>
                         </ul>
                     </div>
